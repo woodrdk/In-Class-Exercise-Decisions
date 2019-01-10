@@ -97,7 +97,7 @@ string season(int month, int day) {
 	else if ((month >= 3 && day >= 16) && (month <= 6 && day <= 15)) {
 		when = "Spring";
 	}
-	else if ((month >= 6 && day >= 16) || (month <= 9 && day <= 15)) {
+	else if ((month >= 6 && day >= 16) && (month <= 9 && day <= 15)) {
 		when = "Summer";
 	}
 	else {
