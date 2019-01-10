@@ -30,6 +30,10 @@ int main() {
 	cout << endl;
 
 	printEqual(variable1, variable2, variable3);
+	printEqual(-2,1,2);
+	printEqual(1,1,1);
+	printEqual(1,2,3);
+	printEqual(1, 2, 1);
 	cout << endl;
 	cout << endl;
 	int month = 0;
@@ -44,6 +48,18 @@ int main() {
 
 	string when = season(month, day);
 	cout << when << endl;
+
+	string when1 = season(3,16);
+	cout << when1 << endl;
+
+	string when2 = season(6, 16);
+	cout << when2 << endl;
+
+	string when3 = season(9, 16);
+	cout << when3 << endl;
+
+	string when4 = season(12, 16);
+	cout << when4 << endl;
 
 	system("pause");
 }
@@ -71,9 +87,7 @@ void printEqual(int one, int two, int three) {
 	else {
 		cout << "Neither all are equal nor different" << endl;
 	}
-	
 }
-
 
 // Exercise #2.
 //2. Write a method named season that takes two integers as parameters 
@@ -90,18 +104,28 @@ void printEqual(int one, int two, int three) {
 
 string season(int month, int day) {
 	string when = "";
-	
-	if ((month >= 12 && day >= 16) || (month <= 3 && day <= 15)) {
-		when = "Winter";
-	}
-	else if ((month >= 3 && day >= 16) && (month <= 6 && day <= 15)) {
+	if ((month == 3 && day > 15)
+		|| month == 4
+		|| month == 5
+		|| (month == 6 && day < 16)) {
 		when = "Spring";
 	}
-	else if ((month >= 6 && day >= 16) && (month <= 9 && day <= 15)) {
+
+	else if ((month == 6 && day > 15)
+		|| month == 7
+		|| month == 8
+		|| (month == 9 && day < 16)) {
 		when = "Summer";
 	}
-	else {
+
+	else if ((month == 9 && day > 15)
+		|| month == 10
+		|| month == 11
+		|| (month == 12 && day < 16)) {
 		when = "Fall";
+	}
+	else {
+		when = "Winter";
 	}
 	return when;
 }
