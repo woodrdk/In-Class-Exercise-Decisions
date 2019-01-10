@@ -23,7 +23,6 @@ int printEqual(int one, int two, int three) {
 
 	if (one < zero || two < zero || three < zero) {
 		cout << "Invalid Value" << endl;
-		return 0;
 	}
 	else if (one == two && two == three) {
 		cout << "All numbers are equal" << endl;
@@ -52,11 +51,23 @@ int printEqual(int one, int two, int three) {
 //should return "Summer".And if the date falls between 9 / 16 and 
 //12 / 15, you should return "Fall".
 
-//string season() {
-//
-//
-//
-//}
+string season(int month, int day) {
+	string when = "";
+	
+	if ((month > 11 && day > 15) || (month < 4 && day < 16)) {
+		when = "Winter";
+	}
+	else if ((month > 2 && day > 15) || (month < 7 && day < 16)) {
+		when = "Spring";
+	}
+	else if ((month > 5 && day > 15) || (month < 10 && day < 16)) {
+		when = "Summer";
+	}
+	else {
+		when = "Fall";
+	}
+	return when;
+}
 
 // Main function
 int main() {
@@ -76,5 +87,20 @@ int main() {
 	cout << endl;
 
 	printEqual(variable1, variable2, variable3);
+	cout << endl;
+	cout << endl;
+	int month = 0;
+	int day = 0;
+	cout << "What is month? ";
+	cin >> month;
+	cout << endl;
+
+	cout << "What is day? ";
+	cin >> day;
+	cout << endl;
+
+	string when = season(month, day);
+	cout << when <<endl;
+
 	system("pause");
 }
